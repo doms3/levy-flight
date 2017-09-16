@@ -4,20 +4,20 @@ function setup() {
 	createCanvas( 600, 600 );
 	background( 51 );
 	
-    var initPos = createVector( width/2, height/2 );
+    	var initPos = createVector( width/2, height/2 );
     
 	particle = {
 		pos: initPos,
-        oldPos: initPos.copy(),
+        	oldPos: initPos.copy(),
 	};
 }
 
 function draw() {
 	while( true ) {
-		var speed = p5.Vector.random2D();
-		var mag = getMag();
+		let speed = p5.Vector.random2D();
+		let mag = getMag();
 	
-		var pos = particle.pos;
+		let pos = particle.pos;
 		
 		speed.setMag( mag );
 	
