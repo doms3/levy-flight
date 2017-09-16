@@ -15,10 +15,10 @@ function setup() {
 
 function draw() {
 	while( true ) {
-		var speed = p5.Vector.random2D();
-		var mag = getMag();
+		let speed = p5.Vector.random2D();
+		let mag = getMag();
 	
-		var pos = particle.pos;
+		let pos = particle.pos;
 		
 		speed.setMag( mag );
 	
