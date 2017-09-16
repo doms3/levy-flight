@@ -21,19 +21,20 @@ function draw() {
 		
 		speed.setMag( mag );
 	
-		particle.oldPos.set( particle.pos );
-		particle.pos.add( speed );
+		particle.oldPos.set( pos );
+		pos.add( speed );
 		
 		if( pos.x < width && pos.x > 0 && pos.y < height && pos.y > 0 )
 			break;
 		
-		particle.pos.sub( speed );
+		pos.sub( speed );
 	}
 	
 	stroke( 255 );
 	line( particle.pos.x, particle.pos.y, particle.oldPos.x, particle.oldPos.y );
 }
 
+// A levy flight chooses magnitude of velocity via the probability distribution function: u^(-D), this is reflected below where y is the inverse function
 function getMag() {
 	var x = random( 1 );
 	var D = 1.4;
