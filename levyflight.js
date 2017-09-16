@@ -1,23 +1,24 @@
 var particle;
-
+var initPos;
+	
 function setup() {
 	createCanvas( 600, 600 );
 	background( 51 );
 	
-    	var initPos = createVector( width/2, height/2 );
+	initPos = createVector( width/2, height/2 );
     
 	particle = {
-		pos: initPos,
-        	oldPos: initPos.copy(),
+		pos: initPos.copy(),
+        oldPos: initPos.copy(),
 	};
 }
 
 function draw() {
 	while( true ) {
-		let speed = p5.Vector.random2D();
-		let mag = getMag();
+		var speed = p5.Vector.random2D();
+		var mag = getMag();
 	
-		let pos = particle.pos;
+		var pos = particle.pos;
 		
 		speed.setMag( mag );
 	
@@ -32,7 +33,20 @@ function draw() {
 	
 	stroke( 255 );
 	line( particle.pos.x, particle.pos.y, particle.oldPos.x, particle.oldPos.y );
+	
+	var resetSketch = function() {
+		background( 51 );
+		particle = {
+			pos: initPos.copy(),
+			oldPos: initPos.copy(),
+		};
+	}
+	
+	var button = select("#resetbutton");
+	button.mouseClicked( resetSketch );
 }
+
+
 
 // A levy flight chooses magnitude of velocity via the probability distribution function: u^(-D), this is reflected below where y is the inverse function
 function getMag() {
